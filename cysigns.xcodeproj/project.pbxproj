@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		9B7803ED2BBC1E1A0016381C /* cysignsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7803EC2BBC1E1A0016381C /* cysignsApp.swift */; };
-		9B7803EF2BBC1E1A0016381C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7803EE2BBC1E1A0016381C /* ContentView.swift */; };
 		9B7803F12BBC1E1B0016381C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B7803F02BBC1E1B0016381C /* Assets.xcassets */; };
 		9B7803F42BBC1E1B0016381C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B7803F32BBC1E1B0016381C /* Preview Assets.xcassets */; };
+		9B7803FB2BBC20B70016381C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7803FA2BBC20B70016381C /* Question.swift */; };
+		9B7804002BBC21520016381C /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7803FF2BBC21520016381C /* QuizViewModel.swift */; };
+		9B7804022BBC227F0016381C /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7804012BBC227F0016381C /* QuizView.swift */; };
+		9B7804062BBC30610016381C /* QuestionsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7804052BBC30610016381C /* QuestionsLoader.swift */; };
+		9B7804072BBC30CB0016381C /* signs.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7804032BBC25F50016381C /* signs.json */; };
+		9B7804092BBC8A690016381C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7804082BBC8A680016381C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9B7803E92BBC1E1A0016381C /* cysigns.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cysigns.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7803EC2BBC1E1A0016381C /* cysignsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cysignsApp.swift; sourceTree = "<group>"; };
-		9B7803EE2BBC1E1A0016381C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B7803F02BBC1E1B0016381C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B7803F32BBC1E1B0016381C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9B7803FA2BBC20B70016381C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		9B7803FF2BBC21520016381C /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		9B7804012BBC227F0016381C /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		9B7804032BBC25F50016381C /* signs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = signs.json; sourceTree = "<group>"; };
+		9B7804052BBC30610016381C /* QuestionsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsLoader.swift; sourceTree = "<group>"; };
+		9B7804082BBC8A680016381C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +62,13 @@
 			isa = PBXGroup;
 			children = (
 				9B7803EC2BBC1E1A0016381C /* cysignsApp.swift */,
-				9B7803EE2BBC1E1A0016381C /* ContentView.swift */,
-				9B7803F02BBC1E1B0016381C /* Assets.xcassets */,
+				9B7803FE2BBC21210016381C /* ViewModel */,
+				9B7803FD2BBC21190016381C /* View */,
+				9B7803FC2BBC20BB0016381C /* Model */,
+				9B7804042BBC30440016381C /* Utils */,
 				9B7803F22BBC1E1B0016381C /* Preview Content */,
+				9B7804032BBC25F50016381C /* signs.json */,
+				9B7803F02BBC1E1B0016381C /* Assets.xcassets */,
 			);
 			path = cysigns;
 			sourceTree = "<group>";
@@ -65,6 +79,39 @@
 				9B7803F32BBC1E1B0016381C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9B7803FC2BBC20BB0016381C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B7803FA2BBC20B70016381C /* Question.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B7803FD2BBC21190016381C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B7804012BBC227F0016381C /* QuizView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B7803FE2BBC21210016381C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B7803FF2BBC21520016381C /* QuizViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9B7804042BBC30440016381C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B7804052BBC30610016381C /* QuestionsLoader.swift */,
+				9B7804082BBC8A680016381C /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7804072BBC30CB0016381C /* signs.json in Resources */,
 				9B7803F42BBC1E1B0016381C /* Preview Assets.xcassets in Resources */,
 				9B7803F12BBC1E1B0016381C /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B7803EF2BBC1E1A0016381C /* ContentView.swift in Sources */,
+				9B7803FB2BBC20B70016381C /* Question.swift in Sources */,
+				9B7804062BBC30610016381C /* QuestionsLoader.swift in Sources */,
+				9B7804022BBC227F0016381C /* QuizView.swift in Sources */,
 				9B7803ED2BBC1E1A0016381C /* cysignsApp.swift in Sources */,
+				9B7804002BBC21520016381C /* QuizViewModel.swift in Sources */,
+				9B7804092BBC8A690016381C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +327,14 @@
 				DEVELOPMENT_TEAM = 48RQF7575J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = cysigns;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +342,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.illi.cysigns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,11 +362,14 @@
 				DEVELOPMENT_TEAM = 48RQF7575J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = cysigns;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +377,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.illi.cysigns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
