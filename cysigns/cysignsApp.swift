@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct cysignsApp: App {
+    
     var body: some Scene {
         WindowGroup {
             QuizView()
+                .environment(\.colorScheme, .light)
         }
     }
 }
