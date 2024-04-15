@@ -18,24 +18,38 @@ struct QuizView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 10) {
-                HStack {
-                    Text("❓\(viewModel.currentQuestionIndex + 1) of \(viewModel.questions.count)")
+                HStack(spacing: 5) {
+                    Text("\(viewModel.currentQuestionIndex + 1) / \(viewModel.questions.count)")
+                    
                     Spacer()
-                    Text("🟢 \(viewModel.correctAnswers)")
-                    Text("🔴 \(viewModel.wrongAnswers)")
+                    
+                    
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(.green)
+                    Text("\(viewModel.correctAnswers)")
+                    
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(.red)
+                    Text("\(viewModel.wrongAnswers)")
                 }
                 .padding(.horizontal)
+                
+                ProgressView(value: Double(viewModel.currentQuestionIndex), total: Double(viewModel.questions.count))
+                    .tint(.purple)
+                    .padding(.horizontal)
                 
                 if let question = viewModel.currentQuestion {
                     Image(question.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: geometry.size.height * 0.25)
-                        .clipped()
-                        .cornerRadius(8)
+                        .frame(width: geometry.size.width * 0.85,
+                               height: geometry.size.height * 0.3)
                         .padding(.horizontal)
-                    
-                    Spacer()
+                        .background(.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 0.3)
                     
                     ForEach(currentAnswers) { answer in
                         Button {
@@ -52,21 +66,20 @@ struct QuizView: View {
                             }
                         } label: {
                             Text(viewModel.useRussianLanguage ? answer.textRu : answer.text)
-                                .frame(maxWidth: geometry.size.width * 0.8, maxHeight: geometry.size.height)
+                                .frame(maxWidth: geometry.size.width * 0.85, maxHeight: geometry.size.height)
                                 .padding()
                         }
                         .disabled(selectedAnswer != nil)
-                        .padding(.horizontal)
                         .background(colorForAnswer(answer, correctAnswer: viewModel.getCorrectAnswer(), selectedAnswer: selectedAnswer))
                         .foregroundColor(.primary)
                         .cornerRadius(10)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(.primary, lineWidth: 2))
+                        .shadow(radius: 0.3, y: 0.3)
                     }
                 }
                 
                 Spacer()
                 
-                HStack {
+                ZStack() {
                     Button {
                         selectedAnswer = nil
                         checkEndOfGameAndShowAlert()
@@ -76,18 +89,24 @@ struct QuizView: View {
                         Text(Constants.nextButtonText)
                             .frame(width: geometry.size.width * 0.3, height: geometry.size.height * 0.01)
                             .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(.primary, lineWidth: 2))
+                            .background(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 1, y: 1)
                             .foregroundColor(.primary)
                     }
-                }
-                
-                VStack {
-                    Toggle("🌏", isOn: $viewModel.useRussianLanguage)
-                        .padding(.horizontal, 140)
+                    
+                    Toggle(isOn: $viewModel.useRussianLanguage) {
+                        Image(systemName: "globe")
+                            .font(.system(size: 24))
+                    }
+                    .tint(.purple)
+                    .toggleStyle(.button)
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
             .padding(.top)
-            .background(Color(.systemBackground))
+            .background(Color(.systemGroupedBackground))
         }
         .onAppear {
             viewModel.loadQuestions()
@@ -106,15 +125,15 @@ struct QuizView: View {
     }
     
     func colorForAnswer(_ answer: Option, correctAnswer: Option?, selectedAnswer: Option?) -> Color {
-        guard let selectedAnswer = selectedAnswer else { return Color(.systemBackground) }
-        guard let correctAnswer = correctAnswer else { return Color(.systemBackground) }
+        guard let selectedAnswer = selectedAnswer else { return .white }
+        guard let correctAnswer = correctAnswer else { return .white }
         
         if answer.text == correctAnswer.text {
             return .green
         } else if answer.text == selectedAnswer.text {
             return .red
         } else {
-            return Color(.systemBackground)
+            return .white
         }
     }
     
@@ -127,9 +146,4 @@ struct QuizView: View {
 
 #Preview {
     QuizView(viewModel: QuizViewModel())
-}
-
-#Preview {
-    QuizView(viewModel: QuizViewModel())
-        .preferredColorScheme(.dark)
 }
